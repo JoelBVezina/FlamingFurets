@@ -1,0 +1,24 @@
+{
+  "name": "slackathonmtl",
+  "version": "1.0.0",
+  "description": "nothing so far",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "",
+    "",
+    ""
+  ],
+  "author": "M.Raza Khan",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "moment": "*",
+    "morgan": "~1.0.0",
+    "underscore": "^1.8.3",
+    "express": "^4.13.3"
+  }
+}
