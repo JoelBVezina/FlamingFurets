@@ -8,6 +8,7 @@ var morgan     = require('morgan');
 var config     = require('./config');
 var moment     = require('moment');
 var _          =  require('underscore');
+var request    =  require('request');
 
 var port     = process.env.PORT || 8080;
 
@@ -30,11 +31,18 @@ router.use(function(req, res, next) {
 
 // testing route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-	res.json({ message: 'I am alive so far :) '});
+	request({
+		uri: "http://api.themoviedb.org/3/movie/popular?api_key=0add3c897eb656a62cd72aebb3d941d5",
+		method: "GET"
+	}, function(error, response, body) {
+		res.json({ message: body});
+		//console.log(body);
+	});
+
 });
 
 // ----------------------------------------------------
-router.route('/v1/readings')
+router.route('/slackbot')
 
 	.post(function(req, res) {
 
@@ -46,7 +54,7 @@ router.route('/v1/readings')
 	});
 
 // ----------------------------------------------------
-router.route('/v1/moments/:moments_id')
+router.route('/slackbot/:slack_id')
 
 	.get(function(req, res) {
 		res.json({ status: 405, response: "" });
